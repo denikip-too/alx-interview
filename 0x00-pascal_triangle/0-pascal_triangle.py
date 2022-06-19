@@ -7,12 +7,19 @@ def pascal_triangle(n):
     Pascal’s triangle of n"""
     if n <= 0:
         return []
-    list = []
-    for i in range(n):
-        list.append([])
-        list[i].append(1)
-        for j in range(1, i):
-            list[i].append(list[i - 1][j - 1] + list[i - 1][j])
-        if (n != 0):
-            list[i].append(1)
-    return (list)
+    if n == 1:
+        return [[1]]
+    else:
+        # recursive call
+        res_arr = pascal_triangle(n - 1)
+        # use previous row to calculate current row
+        # every row starts with 1
+        cur_row = [1]
+        prev_row = res_arr[-1]
+        for i in range(len(prev_row) - 1):
+            # sum of 2 entries directly above
+            cur_row.append(prev_row[i] + prev_row[i + 1])
+        # every row ends with 1
+        cur_row += [1]
+        res_arr.append(cur_row)
+        return (res_arr)
