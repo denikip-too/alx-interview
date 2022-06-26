@@ -4,12 +4,13 @@ Each box is numbered sequentially from 0 to n - 1 and each box
 may contain keys to the other boxes"""
 
 
-def join(T, R):
+def join(l1, l2):
     """joins"""
     res = []
-    for e in R:
-        res += T[e]
+    for e in l2:
+        res += l1[e]
     return (res)
+
 
 def canUnlockAll(boxes):
     """determines if all the boxes can be opened"""
