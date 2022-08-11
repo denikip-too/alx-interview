@@ -7,9 +7,10 @@ def minOperations(n):
     """calculates the fewest number of operations needed to result in exactly
     n H characters in the file"""
     res = 0
+    if n is None:
+        return (0)
     for i in range(2, (n + 1)):
         while (n % i == 0):
             res = res + i
             n = n / i
-        return (res)
-    return (0)
+    return (res)
