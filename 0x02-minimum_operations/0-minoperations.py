@@ -4,8 +4,8 @@ Given a number n"""
 
 
 def minOperations(n):
-    """calculates the fewest number of operations needed to result in exactly
-    n H characters in the file"""
+    """ Given a number n, calculates the fewest number of operations
+    needed to result in exactly n H characters in the file"""
     res = 0
     if n is None:
         return (0)
