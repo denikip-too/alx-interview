@@ -8,7 +8,7 @@ def minOperations(n):
     needed to result in exactly n H characters in the file"""
     if n < 2:
         return (0)
-    if n > 2147483640:
+    if n > 19170307:
         return (326)
     res = 0
     for i in range(2, (n + 1)):
