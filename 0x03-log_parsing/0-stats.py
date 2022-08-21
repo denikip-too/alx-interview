@@ -9,7 +9,6 @@ def signal_handler(sig, frame):
     """for ctrl+c"""
     signal.signal(signal.SIGINT, original_sigint)
     sys.exit(1)
-    signal.signal(signal.SIGINT, signal_handler)
 
 def log_stats():
     """print these statistics from the beginning
@@ -17,6 +16,7 @@ def log_stats():
     for line in sys.stdin:
         print(line)
         line.rstrip()
+
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, sigint_handler)
