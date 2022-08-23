@@ -17,6 +17,7 @@ def to_bits(bytes):
             num.append(bool(byte & exp))
         yield num
 
+
 def validUTF8(data):
     """determines if a given data set represents a valid UTF-8 encoding"""
     bits = to_bits(data)
@@ -28,7 +29,6 @@ def validUTF8(data):
             return (False)
         if amount >= MAX_NUMBER_OF_ONES:
             return (False)
-
         for _ in range(amount - 1):
             try:
                 byte = next(bits)
