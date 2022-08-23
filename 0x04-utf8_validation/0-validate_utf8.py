@@ -25,15 +25,15 @@ def validUTF8(data):
             continue
         amount = sum(takewhile(bool, byte))
         if amount <= 1:
-            return False
+            return (False)
         if amount >= MAX_NUMBER_OF_ONES:
-            return False
+            return (False)
 
         for _ in range(amount - 1):
             try:
                 byte = next(bits)
             except StopIteration:
-                return False
+                return (False)
             if byte[0:2] != [1, 0]:
-                return False
-    return True
+                return (False)
+    return (True)
