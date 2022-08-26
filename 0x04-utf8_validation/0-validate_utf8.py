@@ -27,7 +27,7 @@ def validUTF8(data):
         amount = sum(takewhile(bool, byte))
         if amount <= 1:
             return (False)
-        if amount >= MAX_NUMBER_OF_ONES:
+        if amount > MAX_NUMBER_OF_ONES:
             return (False)
         for _ in range(amount - 1):
             try:
