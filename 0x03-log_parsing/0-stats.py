@@ -1,23 +1,38 @@
 #!/usr/bin/python3
-"""reads stdin line by line and computes metrics"""
+"""Log parsing
+"""
+
 import sys
-import requests
-import signal
 
 
-def signal_handler(sig, frame):
-    """for ctrl+c"""
-    signal.signal(signal.SIGINT, original_sigint)
-    sys.exit(1)
+filesize, count = 0, 0
+codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
+stats = {k: 0 for k in codes}
 
-def log_stats():
-    """print these statistics from the beginning
-    After every 10 lines and/or a keyboard interruption (CTRL + C)"""
+
+def print_stats(stats: dict, file_size: int) -> None:
+    print("File size: {:d}".format(filesize))
+    for k, v in sorted(stats.items()):
+        print("{}: {}".format(k, v))
+
+
+try:
     for line in sys.stdin:
-        print(line)
-        line.rstrip()
-
-
-if __name__ == '__main__':
-    signal.signal(signal.SIGINT, sigint_handler)
-    log_stats()
+        count += 1
+        data = line.split()
+        try:
+            status_code = data[-2]
+            if status_code in stats:
+                stats[status_code] += 1
+        except BaseException:
+            pass
+        try:
+            filesize += int(data[-1])
+        except BaseException:
+            pass
+        if count % 10 == 0:
+            print_stats(stats, filesize)
+    print_stats(stats, filesize)
+except KeyboardInterrupt:
+    print_stats(stats, filesize)
+    raise
