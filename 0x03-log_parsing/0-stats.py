@@ -13,7 +13,8 @@ stats = {k: 0 for k in codes}
 def print_stats(stats: dict, file_size: int) -> None:
     print("File size: {:d}".format(filesize))
     for k, v in sorted(stats.items()):
-        print("{}: {}".format(k, v))
+        if v != 0:
+            print("{}: {}".format(k, v))
 
 
 try:
