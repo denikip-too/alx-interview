@@ -11,7 +11,7 @@ request(movieCharacters, function (error, response) {
   const characters = [];
   for (const key in response) {
     if (key === 'characters') {
-      console.log(`${characters[key]}`);
+      console.log(characters[0][-1]);
     }
   }
 });
