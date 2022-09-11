@@ -8,10 +8,11 @@ request(movieCharacters, function (error, response) {
   if (!error && response.status === 200) {
     return response.json();
   }
-  const characters = [];
   for (const key in response) {
-    if (key === 'characters') {
-      console.log(characters[0][-1]);
+    for (const value in response[key]) {
+      if (response[key] === 'characters') {
+        console.log(response[key][value]);
+      }
     }
   }
 });
