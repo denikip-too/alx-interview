@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// prints all characters of a Star Wars movie
+// print all characters of a Star Wars movie
 
 const request = require('request');
 const films = 'https://swapi-api.hbtn.io/api/films/';
