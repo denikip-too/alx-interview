@@ -8,8 +8,8 @@ def isWinner(x, nums):
     """
     res = 0
     for i in range(x):
-        res ^= nums[i]
-    if (res == 0 or x % 2 == 0):
+        res ^= nums[i % x]
+    if res > 0:
         return ("Maria")
     else:
         return ("Ben")
