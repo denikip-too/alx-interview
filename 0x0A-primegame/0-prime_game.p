@@ -7,7 +7,7 @@ def isWinner(x, nums):
     If the winner cannot be determined, return None
     """
     res = 0
-    for i in x:
+    for i in range(x):
         res ^= nums[i % x]
     if res > 0:
         return ("Maria")
