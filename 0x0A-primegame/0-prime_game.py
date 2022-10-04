@@ -14,4 +14,4 @@ def isWinner(x, nums):
     if res < 0:
         return ("Ben")
     else:
-        return ("Ben")
+        return ("Maria")
