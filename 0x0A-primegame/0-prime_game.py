@@ -11,4 +11,7 @@ def isWinner(x, nums):
     res = 0
     for i in range(x):
         res ^= nums[i % x]
-    return "Maria" if res > 0 else "Ben"
+    if res == 0:
+        return "Maria"
+    elif res > 0:
+        return "Ben"
